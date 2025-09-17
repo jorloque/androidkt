@@ -1,134 +1,95 @@
 package com.example.clic_surface
 
+import com.example.clic_surface.ui.theme.Clic_surfaceTheme
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.example.clic_surface.ui.theme.Clic_surfaceTheme
-import android.util.Log
-import android.widget.Button
-import android.widget.Space
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.text.KeyboardActions
-import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountBox
-import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.Visibility
-import androidx.compose.material.icons.filled.VisibilityOff
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Switch
-import androidx.compose.material3.SwitchDefaults
-import androidx.compose.material3.TextField
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.text.style.TextDecoration
-import kotlin.math.absoluteValue
-
-
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MaterialTheme {
+            Clic_surfaceTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Prueba()
-
+                    Column(modifier = Modifier.padding(16.dp)) {
+                        MyTripleCheckBox()
+                    }
                 }
             }
         }
     }
 }
 
+// ✅ Componente personalizado con tres opciones
 @Composable
-fun Prueba() {
-    var switch by rememberSaveable { mutableStateOf(false) }
-    var checked by rememberSaveable { mutableStateOf(false) }
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Switch(
-            checked = switch,
-            onCheckedChange = {
-                switch = it
-            },
-            colors = SwitchDefaults.colors(
-                uncheckedBorderColor = Color.Red,
-                checkedBorderColor = Color.Blue
+fun MyTripleCheckBox() {
+    var isCheckedA by remember { mutableStateOf(false) }
+    var isCheckedB by remember { mutableStateOf(false) }
+    var isCheckedC by remember { mutableStateOf(false) }
+
+    Column {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(4.dp)
+        ) {
+            Checkbox(
+                checked = isCheckedA,
+                onCheckedChange = { isCheckedA = it }
             )
-        )
-        Switch(
-            checked = checked,
-            onCheckedChange = {
-                checked = it
-            },
-            thumbContent = {
-                Icon(
-                    imageVector = Icons.Default.Check,
-                    contentDescription = null
-                )
-            }
+            Spacer(modifier = Modifier.width(8.dp))
+            Text(text = "Opción A")
+        }
 
-        )
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(4.dp)
+        ) {
+            Checkbox(
+                checked = isCheckedB,
+                onCheckedChange = { isCheckedB = it }
+            )
+            Spacer(modifier = Modifier.width(8.dp))
+            Text(text = "Opción B")
+        }
 
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(4.dp)
+        ) {
+            Checkbox(
+                checked = isCheckedC,
+                onCheckedChange = { isCheckedC = it }
+            )
+            Spacer(modifier = Modifier.width(8.dp))
+            Text(text = "Opción C")
+        }
     }
-
 }
-
 
 @Preview(showBackground = true)
 @Composable
-fun PruebaPreview() {
-    MaterialTheme {
-        Prueba()
+fun MyTripleCheckBoxPreview() {
+    Clic_surfaceTheme {
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = MaterialTheme.colorScheme.background
+        ) {
+            MyTripleCheckBox()
+        }
     }
 }
