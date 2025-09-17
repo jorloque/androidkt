@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Clic_surface</string>
+    <string name="greeting">Bienvenido a la aplicación</string>
+    <string name="clickme">¡PÚLSAME!</string>
+    <string name="counter_tex">Has hecho click %1$d veces</string>
+    <string name="user_points_text">Hola %1$s, has conseguido %2d points</string>
+    <string name="despedida">Adios</string>
+</resources>
