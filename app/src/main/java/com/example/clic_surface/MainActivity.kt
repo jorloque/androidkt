@@ -47,6 +47,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Switch
+import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -99,7 +100,11 @@ fun Prueba() {
             checked = switch,
             onCheckedChange = {
                 switch = it
-            }
+            },
+            colors = SwitchDefaults.colors(
+                uncheckedBorderColor = Color.Red,
+                checkedBorderColor = Color.Blue
+            )
         )
         Switch(
             checked = checked,
@@ -112,6 +117,7 @@ fun Prueba() {
                     contentDescription = null
                 )
             }
+
         )
 
     }
