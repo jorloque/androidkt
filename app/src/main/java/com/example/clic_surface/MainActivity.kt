@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     Column(modifier = Modifier.padding(16.dp)) {
-                        MyDatePicker() // 👈 Aquí llamamos al composable del otro archivo
+                        myTimePicker() // 👈 Aquí llamamos al composable del otro archivo
                     }
                 }
             }
@@ -48,7 +48,7 @@ fun MyClassDropdownPreviewInMain() {
             color = MaterialTheme.colorScheme.background
         ) {
             Column(modifier = Modifier.padding(16.dp)) {
-                MyDatePicker()
+                myTimePicker()
             }
         }
     }
