@@ -13,6 +13,13 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.clic_surface.ui.theme.Clic_surfaceTheme
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.*
+import androidx.compose.ui.unit.dp
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +31,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     Column(modifier = Modifier.padding(16.dp)) {
-                        MyTripleCheckBox()
+                        MyClassDropdown() // 👈 Aquí llamamos al composable del otro archivo
                     }
                 }
             }
@@ -32,64 +39,17 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-// ✅ Componente personalizado con tres opciones
-@Composable
-fun MyTripleCheckBox() {
-    var isCheckedA by remember { mutableStateOf(false) }
-    var isCheckedB by remember { mutableStateOf(false) }
-    var isCheckedC by remember { mutableStateOf(false) }
-
-    Column {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(4.dp)
-        ) {
-            Checkbox(
-                checked = isCheckedA,
-                onCheckedChange = { isCheckedA = it }
-            )
-            Spacer(modifier = Modifier.width(8.dp))
-            Text(text = "Opción A")
-        }
-
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(4.dp)
-        ) {
-            Checkbox(
-                checked = isCheckedB,
-                onCheckedChange = { isCheckedB = it }
-            )
-            Spacer(modifier = Modifier.width(8.dp))
-            Text(text = "Opción B")
-        }
-
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(4.dp)
-        ) {
-            Checkbox(
-                checked = isCheckedC,
-                onCheckedChange = { isCheckedC = it }
-            )
-            Spacer(modifier = Modifier.width(8.dp))
-            Text(text = "Opción C")
-        }
-    }
-}
-
 @Preview(showBackground = true)
 @Composable
-fun MyTripleCheckBoxPreview() {
+fun MyClassDropdownPreviewInMain() {
     Clic_surfaceTheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.background
         ) {
-            MyTripleCheckBox()
+            Column(modifier = Modifier.padding(16.dp)) {
+                MyClassDropdown()
+            }
         }
     }
 }
