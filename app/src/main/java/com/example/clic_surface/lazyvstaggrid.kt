@@ -33,7 +33,27 @@ fun lazyvstaggrid(){
         "Krillin",
         "Master Roshi",
         "Freezer",
-        "Cell"
+        "Cell",
+        "Son Gohan",
+        "Trunks",
+        "Bulma",
+        "Krillin",
+        "Master Roshi",
+        "Freezer","vegeta",
+        "Piccolo",
+        "Son Gohan",
+        "Trunks",
+        "Bulma",
+        "Krillin",
+        "Master Roshi",
+        "Freezer",
+        "Cell",
+        "Son Gohan",
+        "Trunks",
+        "Bulma",
+        "Krillin",
+        "Master Roshi",
+        "Freezer"
     )
 
     LazyVerticalStaggeredGrid (
