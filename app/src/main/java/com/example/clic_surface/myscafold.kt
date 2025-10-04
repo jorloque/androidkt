@@ -8,6 +8,9 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.Help
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Cake
+import androidx.compose.material.icons.filled.Face4
+import androidx.compose.material.icons.filled.Handyman
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Settings
@@ -113,4 +116,20 @@ fun MyTopBar() {
         )
     )
 
+}
+
+
+@Composable
+fun MyBottomBar() {
+    BottomAppBar {
+        IconButton(onClick = { /* TODO */ }) {
+            Icon(imageVector = Icons.Default.Cake, contentDescription = "Pastel")
+        }
+        IconButton(onClick = { /* TODO */ }) {
+            Icon(imageVector = Icons.Default.Face4, contentDescription = "Rostro")
+        }
+        IconButton(onClick = { /* TODO */ }) {
+            Icon(imageVector = Icons.Default.Handyman, contentDescription = "Herramientas")
+        }
+    }
 }

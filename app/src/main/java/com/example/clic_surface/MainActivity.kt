@@ -38,6 +38,7 @@ class MainActivity : ComponentActivity() {
 fun MyApp() {
     Scaffold(
         topBar = { MyTopBar() },
+        bottomBar = { MyBottomBar() },
         floatingActionButton = {
             FloatingActionButton(onClick = { /* TODO: acción del botón flotante */ }) {
                 Icon(
