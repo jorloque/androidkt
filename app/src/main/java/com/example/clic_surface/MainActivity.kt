@@ -22,19 +22,23 @@ import androidx.compose.material3.*
 import androidx.compose.ui.unit.dp
 
 class MainActivity : ComponentActivity() {
+    @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Clic_surfaceTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Column(modifier = Modifier.padding(16.dp)) {
-                        lazyvstate() // 👈 Aquí llamamos al composable del otro archivo
-                    }
-                }
-            }
+            MyApp()
+        }
+    }
+}
+
+
+@Composable
+fun MyApp() {
+    Scaffold(
+        topBar = { MyTopBar() }
+    ) { innerPadding ->
+        Column(modifier = Modifier.padding(innerPadding)) {
+            Text("Contenido principal visible debajo del TopBar")
         }
     }
 }
