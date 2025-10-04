@@ -18,6 +18,8 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.*
 import androidx.compose.ui.unit.dp
 
@@ -35,7 +37,16 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MyApp() {
     Scaffold(
-        topBar = { MyTopBar() }
+        topBar = { MyTopBar() },
+        floatingActionButton = {
+            FloatingActionButton(onClick = { /* TODO: acción del botón flotante */ }) {
+                Icon(
+                    imageVector = Icons.Default.Add,
+                    contentDescription = "Añadir"
+                )
+            }
+        },
+        floatingActionButtonPosition = FabPosition.End,
     ) { innerPadding ->
         Column(modifier = Modifier.padding(innerPadding)) {
             Text("Contenido principal visible debajo del TopBar")
